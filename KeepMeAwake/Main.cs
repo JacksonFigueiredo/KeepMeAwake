@@ -21,8 +21,15 @@ namespace KeepMeAwake
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Methods.SetWindowPos(this.Handle, Methods.HWND_TOPMOST, 0, 0, 0, 0, Methods.TOPMOST_FLAGS);
-            statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.UtcNow;
+            try
+            {
+                Methods.SetWindowPos(this.Handle, Methods.HWND_TOPMOST, 0, 0, 0, 0, Methods.TOPMOST_FLAGS);
+                statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.UtcNow;
+            }
+            catch (Exception expt)
+            {
+
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -31,8 +38,8 @@ namespace KeepMeAwake
         }
 
         private void clocktimer_Tick(object sender, EventArgs e)
-        {       
-           statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.UtcNow;
+        {
+            statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.UtcNow;
         }
     }
 }
