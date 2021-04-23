@@ -25,7 +25,7 @@ namespace KeepMeAwake
             try
             {
                 Methods.SetWindowPos(this.Handle, Methods.HWND_TOPMOST, 0, 0, 0, 0, Methods.TOPMOST_FLAGS);
-                statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.UtcNow;
+                statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.Now;
             }
             catch (Exception expt)
             {
@@ -40,7 +40,7 @@ namespace KeepMeAwake
 
         private void clocktimer_Tick(object sender, EventArgs e)
         {
-            statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.UtcNow;
+            statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.Now;
         }
 
         private void button1_Click(object sender, EventArgs e)
