@@ -35,10 +35,13 @@ namespace KeepMeAwake
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.clocktimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbltempo = new System.Windows.Forms.Label();
+            this.btnParar = new System.Windows.Forms.Button();
+            this.btnIniciar = new System.Windows.Forms.Button();
+            this.lblstatus = new System.Windows.Forms.Label();
+            this.lblvstatus = new System.Windows.Forms.Label();
+            this.lblvtempo = new System.Windows.Forms.Label();
+            this.controllertimer = new System.Windows.Forms.Timer(this.components);
             this.statusbar1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +55,7 @@ namespace KeepMeAwake
             // 
             this.statusbar1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusbar1.Location = new System.Drawing.Point(0, 174);
+            this.statusbar1.Location = new System.Drawing.Point(0, 160);
             this.statusbar1.Name = "statusbar1";
             this.statusbar1.Size = new System.Drawing.Size(401, 22);
             this.statusbar1.TabIndex = 0;
@@ -72,10 +75,12 @@ namespace KeepMeAwake
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblvtempo);
+            this.groupBox1.Controls.Add(this.lblvstatus);
+            this.groupBox1.Controls.Add(this.lbltempo);
+            this.groupBox1.Controls.Add(this.btnParar);
+            this.groupBox1.Controls.Add(this.btnIniciar);
+            this.groupBox1.Controls.Add(this.lblstatus);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(380, 141);
@@ -83,43 +88,72 @@ namespace KeepMeAwake
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configurações :";
             // 
-            // label1
+            // lbltempo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Status Atual :";
+            this.lbltempo.AutoSize = true;
+            this.lbltempo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbltempo.Location = new System.Drawing.Point(6, 58);
+            this.lbltempo.Name = "lbltempo";
+            this.lbltempo.Size = new System.Drawing.Size(169, 25);
+            this.lbltempo.TabIndex = 4;
+            this.lbltempo.Text = "Tempo Rodando :";
             // 
-            // button1
+            // btnParar
             // 
-            this.button1.Location = new System.Drawing.Point(25, 96);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Iniciar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnParar.Location = new System.Drawing.Point(205, 96);
+            this.btnParar.Name = "btnParar";
+            this.btnParar.Size = new System.Drawing.Size(154, 23);
+            this.btnParar.TabIndex = 3;
+            this.btnParar.Text = "Parar";
+            this.btnParar.UseVisualStyleBackColor = true;
+            this.btnParar.Click += new System.EventHandler(this.btnParar_Click);
             // 
-            // button2
+            // btnIniciar
             // 
-            this.button2.Location = new System.Drawing.Point(205, 96);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Parar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnIniciar.Location = new System.Drawing.Point(25, 96);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(154, 23);
+            this.btnIniciar.TabIndex = 2;
+            this.btnIniciar.Text = "Iniciar";
+            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label2
+            // lblstatus
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(6, 58);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Tempo Rodando :";
+            this.lblstatus.AutoSize = true;
+            this.lblstatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblstatus.Location = new System.Drawing.Point(6, 22);
+            this.lblstatus.Name = "lblstatus";
+            this.lblstatus.Size = new System.Drawing.Size(129, 25);
+            this.lblstatus.TabIndex = 0;
+            this.lblstatus.Text = "Status Atual :";
+            // 
+            // lblvstatus
+            // 
+            this.lblvstatus.AutoSize = true;
+            this.lblvstatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblvstatus.ForeColor = System.Drawing.Color.Red;
+            this.lblvstatus.Location = new System.Drawing.Point(141, 22);
+            this.lblvstatus.Name = "lblvstatus";
+            this.lblvstatus.Size = new System.Drawing.Size(89, 25);
+            this.lblvstatus.TabIndex = 5;
+            this.lblvstatus.Text = "PARADO";
+            // 
+            // lblvtempo
+            // 
+            this.lblvtempo.AutoSize = true;
+            this.lblvtempo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblvtempo.ForeColor = System.Drawing.Color.Blue;
+            this.lblvtempo.Location = new System.Drawing.Point(181, 58);
+            this.lblvtempo.Name = "lblvtempo";
+            this.lblvtempo.Size = new System.Drawing.Size(88, 25);
+            this.lblvtempo.TabIndex = 6;
+            this.lblvtempo.Text = "00:00:00";
+            // 
+            // controllertimer
+            // 
+            this.controllertimer.Interval = 500;
+            this.controllertimer.Tick += new System.EventHandler(this.controllertimer_Tick);
             // 
             // Main
             // 
@@ -149,10 +183,13 @@ namespace KeepMeAwake
         private System.Windows.Forms.Timer clocktimer;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbltempo;
+        private System.Windows.Forms.Button btnParar;
+        private System.Windows.Forms.Button btnIniciar;
+        private System.Windows.Forms.Label lblstatus;
+        private System.Windows.Forms.Label lblvstatus;
+        private System.Windows.Forms.Label lblvtempo;
+        private System.Windows.Forms.Timer controllertimer;
     }
 }
 
