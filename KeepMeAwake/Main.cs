@@ -13,7 +13,7 @@ using KeepMeAwake.Business;
 namespace KeepMeAwake
 {
     public partial class Main : Form
-    {     
+    {
         public Main()
         {
             InitializeComponent();
@@ -22,11 +22,17 @@ namespace KeepMeAwake
         private void Form1_Load(object sender, EventArgs e)
         {
             Methods.SetWindowPos(this.Handle, Methods.HWND_TOPMOST, 0, 0, 0, 0, Methods.TOPMOST_FLAGS);
+            statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.UtcNow;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             Methods.LeftClick();
+        }
+
+        private void clocktimer_Tick(object sender, EventArgs e)
+        {       
+           statusbar1.Items[0].Text = "Data e Hora Locais : " + DateTime.UtcNow;
         }
     }
 }
