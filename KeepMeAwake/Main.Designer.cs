@@ -35,12 +35,12 @@ namespace KeepMeAwake
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.clocktimer = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblvtempo = new System.Windows.Forms.Label();
+            this.lblvstatus = new System.Windows.Forms.Label();
             this.lbltempo = new System.Windows.Forms.Label();
             this.btnParar = new System.Windows.Forms.Button();
             this.btnIniciar = new System.Windows.Forms.Button();
             this.lblstatus = new System.Windows.Forms.Label();
-            this.lblvstatus = new System.Windows.Forms.Label();
-            this.lblvtempo = new System.Windows.Forms.Label();
             this.controllertimer = new System.Windows.Forms.Timer(this.components);
             this.statusbar1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,6 +88,28 @@ namespace KeepMeAwake
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configurações :";
             // 
+            // lblvtempo
+            // 
+            this.lblvtempo.AutoSize = true;
+            this.lblvtempo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblvtempo.ForeColor = System.Drawing.Color.Blue;
+            this.lblvtempo.Location = new System.Drawing.Point(181, 58);
+            this.lblvtempo.Name = "lblvtempo";
+            this.lblvtempo.Size = new System.Drawing.Size(88, 25);
+            this.lblvtempo.TabIndex = 6;
+            this.lblvtempo.Text = "00:00:00";
+            // 
+            // lblvstatus
+            // 
+            this.lblvstatus.AutoSize = true;
+            this.lblvstatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblvstatus.ForeColor = System.Drawing.Color.Red;
+            this.lblvstatus.Location = new System.Drawing.Point(141, 22);
+            this.lblvstatus.Name = "lblvstatus";
+            this.lblvstatus.Size = new System.Drawing.Size(89, 25);
+            this.lblvstatus.TabIndex = 5;
+            this.lblvstatus.Text = "PARADO";
+            // 
             // lbltempo
             // 
             this.lbltempo.AutoSize = true;
@@ -128,28 +150,6 @@ namespace KeepMeAwake
             this.lblstatus.TabIndex = 0;
             this.lblstatus.Text = "Status Atual :";
             // 
-            // lblvstatus
-            // 
-            this.lblvstatus.AutoSize = true;
-            this.lblvstatus.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblvstatus.ForeColor = System.Drawing.Color.Red;
-            this.lblvstatus.Location = new System.Drawing.Point(141, 22);
-            this.lblvstatus.Name = "lblvstatus";
-            this.lblvstatus.Size = new System.Drawing.Size(89, 25);
-            this.lblvstatus.TabIndex = 5;
-            this.lblvstatus.Text = "PARADO";
-            // 
-            // lblvtempo
-            // 
-            this.lblvtempo.AutoSize = true;
-            this.lblvtempo.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblvtempo.ForeColor = System.Drawing.Color.Blue;
-            this.lblvtempo.Location = new System.Drawing.Point(181, 58);
-            this.lblvtempo.Name = "lblvtempo";
-            this.lblvtempo.Size = new System.Drawing.Size(88, 25);
-            this.lblvtempo.TabIndex = 6;
-            this.lblvtempo.Text = "00:00:00";
-            // 
             // controllertimer
             // 
             this.controllertimer.Interval = 500;
@@ -165,7 +165,7 @@ namespace KeepMeAwake
             this.MaximizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Keep me Awake";
+            this.Text = "Ticker";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusbar1.ResumeLayout(false);
             this.statusbar1.PerformLayout();
